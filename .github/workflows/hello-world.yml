@@ -1,5 +1,6 @@
 ---
-run-name: Hello World by @${{ github.actor }}
+name: Hello World with Context
+run-name: ${{ github.actor }} triggered this workflow
 on:
   workflow_dispatch:
 jobs:
