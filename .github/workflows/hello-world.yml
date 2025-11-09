@@ -1,8 +1,9 @@
 ---
 run-name: Hello World
-on: workflow_dispatch
+on: workflow_dispatch:
 jobs:
-  name:
+  hello:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello, World!"
+      - name: Print Hello World
+        run: echo "Hello, World!"
