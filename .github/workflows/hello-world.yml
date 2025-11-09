@@ -9,7 +9,7 @@ jobs:
       - name: Print Hello World
         run: |
           echo "Hello, World!"
-          echo "Triggered by: ${{ ggit ithub.actor }}"
+          echo "Triggered by: ${{ github.actor }}"
           echo "Repository: ${{ github.repository }}"
           echo "Reference: refs/heads/main
 
