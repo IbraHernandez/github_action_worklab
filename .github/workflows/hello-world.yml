@@ -2,6 +2,14 @@ name: Hello World with Context
 run-name: ${{ github.actor }} triggered this workflow
 on:
   workflow_dispatch:
+    inputs:
+      name:
+        required: true
+        description: 'Your name for personalized greeting'
+      greeting:
+        required: false
+        description: "Custom greeting message"
+        default: "Hello"
 jobs:
   hello:
     runs-on: ubuntu-latest
