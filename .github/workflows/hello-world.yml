@@ -6,10 +6,12 @@ on:
       name:
         required: true
         description: 'Your name for personalized greeting'
+        type: string
       greeting:
         required: false
         description: "Custom greeting message"
         default: "Hello"
+        type: string
 jobs:
   hello:
     runs-on: ubuntu-latest
