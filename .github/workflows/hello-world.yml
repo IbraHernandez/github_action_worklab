@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Print Hello World
         run: |
-          echo 'Hello, World!'
+          echo 'Hello, ${{ inputs.name }}'
           echo 'Triggered by: ${{ github.actor }}'
           echo 'Repository: ${{ github.repository }}'
           echo 'Reference: ${{ github.ref }}'
