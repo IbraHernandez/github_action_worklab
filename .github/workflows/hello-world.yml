@@ -1,9 +1,15 @@
 ---
-run-name: Hello World
-on: workflow_dispatch:
+run-name: Hello World by @${{ github.actor }}
+on:
+  workflow_dispatch:
 jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
       - name: Print Hello World
-        run: echo "Hello, World!"
+        run: |
+          echo "Hello, World!"
+          echo "Triggered by: ${{ ggit ithub.actor }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Reference: refs/heads/main
+
