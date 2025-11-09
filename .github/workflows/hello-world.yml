@@ -8,8 +8,8 @@ jobs:
     steps:
       - name: Print Hello World
         run: |
-          echo "Hello, World!"
-          echo "Triggered by: ${{ github.actor }}"
-          echo "Repository: ${{ github.repository }}"
-          echo "Reference: ${{ github.ref }}"
+          echo 'Hello, World!'
+          echo 'Triggered by: ${{ github.actor }}'
+          echo 'Repository: ${{ github.repository }}'
+          echo 'Reference: ${{ github.ref }}'
 
