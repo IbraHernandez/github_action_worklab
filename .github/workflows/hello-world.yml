@@ -4,14 +4,17 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        required: true
+        required: false
         description: 'Your name for personalized greeting'
+        default: 'World'
         type: string
       greeting:
         required: false
         description: "Custom greeting message"
         default: "Hello"
         type: string
+  issues:
+    types: [opened]
 jobs:
   hello:
     runs-on: ubuntu-latest
@@ -22,4 +25,20 @@ jobs:
           echo 'Triggered by: ${{ github.actor }}'
           echo 'Repository: ${{ github.repository }}'
           echo 'Reference: ${{ github.ref }}'
+        env:
+          NAME: ${{ github.event.inputs.name }}
+          GREETING: ${{ github.event.inputs.greeting }}
+          REF: ${{ github.ref }}
+
+      - name: Print Issue Information
+        run: |
+            echo "New issue opened!"
+            echo "Issue #${{ github.event.issue.number }}: $ISSUE_TITLE"
+            echo "Body: $ISSUE_BODY"
+            echo "Opened by: ${{ github.event.issue.user.login }}"
+            echo "Issue URL: ${{ github.event.issue.html_url }}"
+        env:
+            ISSUE_TITLE: ${{ github.event.issue.title }}
+            ISSUE_BODY: ${{ github.event.issue.body }}
+          
 
