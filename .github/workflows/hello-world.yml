@@ -67,3 +67,16 @@ jobs:
           echo "Comment added to issue ${{ github.event.issue.number }}"
         env:
           GH_TOKEN: ${{ github.token }}
+
+      - name: On schedule
+        if: github.event_name == 'schedule'
+        run: |
+          echo "Recent workflow runs:"
+          gh run list --workflow ${{ github.workflow }} --repo ${{ github.repository }}
+
+      - name: On workload_dispatch
+        if: github.event_name == 'workload_dispatch'
+        run: |
+          echo "Repo Info!"
+          echo "Name: ${{ github.repository }}"
+          echo "Owner: ${{ github.repository_owner }}"
