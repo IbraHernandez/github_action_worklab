@@ -63,7 +63,7 @@ jobs:
       - name: Comment the issue
         if: github.event_name == 'issues'
         run: |
-          gh issue comment ${{ github.event.issue.number }} --body "Hello to may issue from github CLI"
+          gh issue comment ${{ github.event.issue.number }} --repo ${{ GITHUB_REPOSITORY }}  --body "Hello to may issue from github CLI"
           echo "Comment added to issue ${{ github.event.issue.number }}"
         env:
           GH_TOKEN: ${{ github.token }}
