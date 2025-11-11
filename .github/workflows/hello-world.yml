@@ -66,5 +66,3 @@ jobs:
           gh auth login --with-token
           gh issue comment ${{ github.event.issue.number }} --body "Hello to may issue from github CLI"
           echo "Comment added to issue ${{ github.event.issue.number }}"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
