@@ -56,3 +56,15 @@ jobs:
 
           
 
+  github_cli:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: Comment the issue
+        if: github.event_name == 'issues'
+        run: |
+          gh auth login --with-token $GH_TOKEN
+          gh issue comment ${{ github.event.issue.number }} --body "Hello to may issue from github CLI"
+          echo "Comment added to issue ${{ github.event.issue.number }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
