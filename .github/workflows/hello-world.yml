@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ${{ github.actor }} triggered this workflow
-        if: ${{ GITHUB_EVENT_NAME == 'workflow_dispatch' }}
+        if: github.event_name == 'workflow_dispatch'
         run: |
           echo 'Hello, ${{ inputs.name }}'
           echo 'Triggered by: ${{ github.actor }}'
@@ -34,7 +34,7 @@ jobs:
           REF: ${{ github.ref }}
 
       - name: Issue ${{ github.event.issue.number }} triggered this workflow
-        if: ${{ GITHUB_EVENT_NAME == 'issues' }}
+        if: github.event_name == 'issues'
         run: |
             echo "New issue opened!"
             echo "Issue #${{ github.event.issue.number }}: $ISSUE_TITLE"
@@ -46,7 +46,7 @@ jobs:
             ISSUE_BODY: ${{ github.event.issue.body }}
 
       - name: Cron triggered this workflow
-        if: ${{ GITHUB_EVENT_NAME == 'schedule' }}
+        if: github.event_name == 'schedule'
         run: |
           echo "Daily status check - All systems operational"
           echo -n "Current time: "; date -u
