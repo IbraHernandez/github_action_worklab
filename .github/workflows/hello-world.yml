@@ -63,6 +63,5 @@ jobs:
       - name: Comment the issue
         if: github.event_name == 'issues'
         run: |
-          gh auth login --with-token
           gh issue comment ${{ github.event.issue.number }} --body "Hello to may issue from github CLI"
           echo "Comment added to issue ${{ github.event.issue.number }}"
