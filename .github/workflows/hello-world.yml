@@ -74,6 +74,8 @@ jobs:
           echo "${{ github }}"
           echo "Recent workflow runs:"
           gh run list --workflow hello-world.yml --repo ${{ github.repository }}
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: On workload_dispatch
         if: github.event_name == 'workflow_dispatch'
