@@ -71,9 +71,9 @@ jobs:
       - name: On schedule
         if: github.event_name == 'workflow_dispatch'
         run: |
-          echo "${{ github.workflow }}"
+          echo "${{ github }}"
           echo "Recent workflow runs:"
-          gh run list --workflow ${{ github.workflow }} --repo ${{ github.repository }}
+          gh run list --workflow hello-world.yml --repo ${{ github.repository }}
 
       - name: On workload_dispatch
         if: github.event_name == 'workflow_dispatch'
