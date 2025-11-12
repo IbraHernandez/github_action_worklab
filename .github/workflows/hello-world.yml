@@ -69,8 +69,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
 
       - name: On schedule
-        if: github.event_name == 'schedule'
+        if: github.event_name == 'workflow_dispatch'
         run: |
+          echo "${{ github.workflow }}"
           echo "Recent workflow runs:"
           gh run list --workflow ${{ github.workflow }} --repo ${{ github.repository }}
 
